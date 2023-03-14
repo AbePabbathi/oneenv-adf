@@ -1,0 +1,383 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "oneenv-adf"
+		},
+		"ArasABS_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'ArasABS'"
+		},
+		"ArasADDL_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ArasADDL'"
+		},
+		"ArasADLS_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'ArasADLS'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
+		},
+		"AzureDatabricks_LS_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
+		},
+		"AzureFunction1_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
+		},
+		"Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Databricks'"
+		},
+		"Demo Azure Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Demo Azure Databricks'"
+		},
+		"LinkedCluster_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'LinkedCluster'"
+		},
+		"Oneenv Azure Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Oneenv Azure Databricks'"
+		},
+		"Oneenv_AzureDatabricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Oneenv_AzureDatabricks'"
+		},
+		"SQLMaintenanceDemo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLMaintenanceDemo'"
+		},
+		"Salesforce_Aras_Demo_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_Aras_Demo'"
+		},
+		"Salesforce_Aras_Demo_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_Aras_Demo'"
+		},
+		"dbx-sample-config-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-config-test-ls'"
+		},
+		"dbx-sample-integration-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-integration-test-ls'"
+		},
+		"dbx-sample-monitor-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-monitor-ls'"
+		},
+		"dbx-sample-multi-task-pipeline-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-multi-task-pipeline-ls'"
+		},
+		"dbx-sample-score-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-score-ls'"
+		},
+		"dbx-sample-train-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-train-ls'"
+		},
+		"dbx-sample-transform-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-transform-ls'"
+		},
+		"dbx-sample-unit-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-unit-test-ls'"
+		},
+		"field eng east kpPool_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'field eng east kpPool'"
+		},
+		"guanjiestorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'guanjiestorage'"
+		},
+		"itrusov_func_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'itrusov_func'"
+		},
+		"new-sample-integration-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'new-sample-integration-test-ls'"
+		},
+		"new-sample-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'new-sample-ls'"
+		},
+		"ADLSLandingZone_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://maintlandingzone.dfs.core.windows.net"
+		},
+		"ArasABS_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://arasazureblobstorage.blob.core.windows.net/"
+		},
+		"ArasABS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasABS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"ArasADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://arasdemostorage.dfs.core.windows.net/"
+		},
+		"ArasADLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasADLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-165614-tibia842"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://li-jobs-api-test.azurewebsites.net"
+		},
+		"Demo Azure Databricks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-164905-tear862"
+		},
+		"Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-165614-tibia842"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://edo.my.salesforce.com/"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "prasad.kona#@salesforce.demo"
+		},
+		"field eng east kpPool_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0506-175016-photo39"
+		},
+		"itrusov_func_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://itrusov-func.azurewebsites.net"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "oneenv-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ArasABS_servicePrincipalCredential": {
+						"value": "[parameters('ArasABS_servicePrincipalCredential')]"
+					},
+					"ArasADDL_accessToken": {
+						"value": "[parameters('ArasADDL_accessToken')]"
+					},
+					"ArasADLS_servicePrincipalCredential": {
+						"value": "[parameters('ArasADLS_servicePrincipalCredential')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"AzureDatabricksDeltaLake1_accessToken": {
+						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
+					},
+					"AzureDatabricks_LS_accessToken": {
+						"value": "[parameters('AzureDatabricks_LS_accessToken')]"
+					},
+					"AzureFunction1_functionKey": {
+						"value": "[parameters('AzureFunction1_functionKey')]"
+					},
+					"Databricks_accessToken": {
+						"value": "[parameters('Databricks_accessToken')]"
+					},
+					"Demo Azure Databricks_accessToken": {
+						"value": "[parameters('Demo Azure Databricks_accessToken')]"
+					},
+					"LinkedCluster_accessToken": {
+						"value": "[parameters('LinkedCluster_accessToken')]"
+					},
+					"Oneenv Azure Databricks_accessToken": {
+						"value": "[parameters('Oneenv Azure Databricks_accessToken')]"
+					},
+					"Oneenv_AzureDatabricks_accessToken": {
+						"value": "[parameters('Oneenv_AzureDatabricks_accessToken')]"
+					},
+					"SQLMaintenanceDemo_connectionString": {
+						"value": "[parameters('SQLMaintenanceDemo_connectionString')]"
+					},
+					"Salesforce_Aras_Demo_password": {
+						"value": "[parameters('Salesforce_Aras_Demo_password')]"
+					},
+					"Salesforce_Aras_Demo_securityToken": {
+						"value": "[parameters('Salesforce_Aras_Demo_securityToken')]"
+					},
+					"dbx-sample-config-test-ls_accessToken": {
+						"value": "[parameters('dbx-sample-config-test-ls_accessToken')]"
+					},
+					"dbx-sample-integration-test-ls_accessToken": {
+						"value": "[parameters('dbx-sample-integration-test-ls_accessToken')]"
+					},
+					"dbx-sample-monitor-ls_accessToken": {
+						"value": "[parameters('dbx-sample-monitor-ls_accessToken')]"
+					},
+					"dbx-sample-multi-task-pipeline-ls_accessToken": {
+						"value": "[parameters('dbx-sample-multi-task-pipeline-ls_accessToken')]"
+					},
+					"dbx-sample-score-ls_accessToken": {
+						"value": "[parameters('dbx-sample-score-ls_accessToken')]"
+					},
+					"ADLSLandingZone_properties_typeProperties_url": {
+						"value": "[parameters('ADLSLandingZone_properties_typeProperties_url')]"
+					},
+					"ArasABS_properties_typeProperties_serviceEndpoint": {
+						"value": "[parameters('ArasABS_properties_typeProperties_serviceEndpoint')]"
+					},
+					"ArasABS_properties_typeProperties_tenant": {
+						"value": "[parameters('ArasABS_properties_typeProperties_tenant')]"
+					},
+					"ArasABS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('ArasABS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"ArasADLS_properties_typeProperties_url": {
+						"value": "[parameters('ArasADLS_properties_typeProperties_url')]"
+					},
+					"ArasADLS_properties_typeProperties_tenant": {
+						"value": "[parameters('ArasADLS_properties_typeProperties_tenant')]"
+					},
+					"ArasADLS_properties_typeProperties_servicePrincipalId": {
+						"value": "[parameters('ArasADLS_properties_typeProperties_servicePrincipalId')]"
+					},
+					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+					},
+					"AzureFunction1_properties_typeProperties_functionAppUrl": {
+						"value": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]"
+					},
+					"Demo Azure Databricks_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('Demo Azure Databricks_properties_typeProperties_existingClusterId')]"
+					},
+					"Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId')]"
+					},
+					"Salesforce_Aras_Demo_properties_typeProperties_environmentUrl": {
+						"value": "[parameters('Salesforce_Aras_Demo_properties_typeProperties_environmentUrl')]"
+					},
+					"Salesforce_Aras_Demo_properties_typeProperties_username": {
+						"value": "[parameters('Salesforce_Aras_Demo_properties_typeProperties_username')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "oneenv-adf_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"dbx-sample-train-ls_accessToken": {
+						"value": "[parameters('dbx-sample-train-ls_accessToken')]"
+					},
+					"dbx-sample-transform-ls_accessToken": {
+						"value": "[parameters('dbx-sample-transform-ls_accessToken')]"
+					},
+					"dbx-sample-unit-test-ls_accessToken": {
+						"value": "[parameters('dbx-sample-unit-test-ls_accessToken')]"
+					},
+					"field eng east kpPool_accessToken": {
+						"value": "[parameters('field eng east kpPool_accessToken')]"
+					},
+					"guanjiestorage_connectionString": {
+						"value": "[parameters('guanjiestorage_connectionString')]"
+					},
+					"itrusov_func_functionKey": {
+						"value": "[parameters('itrusov_func_functionKey')]"
+					},
+					"new-sample-integration-test-ls_accessToken": {
+						"value": "[parameters('new-sample-integration-test-ls_accessToken')]"
+					},
+					"new-sample-ls_accessToken": {
+						"value": "[parameters('new-sample-ls_accessToken')]"
+					},
+					"field eng east kpPool_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('field eng east kpPool_properties_typeProperties_existingClusterId')]"
+					},
+					"itrusov_func_properties_typeProperties_functionAppUrl": {
+						"value": "[parameters('itrusov_func_properties_typeProperties_functionAppUrl')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'oneenv-adf_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "oneenv-adf_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'oneenv-adf_ArmTemplate_1')]"
+			]
+		}
+	]
+}

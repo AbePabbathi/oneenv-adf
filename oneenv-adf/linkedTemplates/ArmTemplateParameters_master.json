@@ -1,0 +1,144 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "oneenv-adf"
+		},
+		"ArasABS_servicePrincipalCredential": {
+			"value": ""
+		},
+		"ArasADDL_accessToken": {
+			"value": ""
+		},
+		"ArasADLS_servicePrincipalCredential": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricks_LS_accessToken": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"Databricks_accessToken": {
+			"value": ""
+		},
+		"Demo Azure Databricks_accessToken": {
+			"value": ""
+		},
+		"LinkedCluster_accessToken": {
+			"value": ""
+		},
+		"Oneenv Azure Databricks_accessToken": {
+			"value": ""
+		},
+		"Oneenv_AzureDatabricks_accessToken": {
+			"value": ""
+		},
+		"SQLMaintenanceDemo_connectionString": {
+			"value": ""
+		},
+		"Salesforce_Aras_Demo_password": {
+			"value": ""
+		},
+		"Salesforce_Aras_Demo_securityToken": {
+			"value": ""
+		},
+		"dbx-sample-config-test-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-integration-test-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-monitor-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-multi-task-pipeline-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-score-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-train-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-transform-ls_accessToken": {
+			"value": ""
+		},
+		"dbx-sample-unit-test-ls_accessToken": {
+			"value": ""
+		},
+		"field eng east kpPool_accessToken": {
+			"value": ""
+		},
+		"guanjiestorage_connectionString": {
+			"value": ""
+		},
+		"itrusov_func_functionKey": {
+			"value": ""
+		},
+		"new-sample-integration-test-ls_accessToken": {
+			"value": ""
+		},
+		"new-sample-ls_accessToken": {
+			"value": ""
+		},
+		"ADLSLandingZone_properties_typeProperties_url": {
+			"value": "https://maintlandingzone.dfs.core.windows.net"
+		},
+		"ArasABS_properties_typeProperties_serviceEndpoint": {
+			"value": "https://arasazureblobstorage.blob.core.windows.net/"
+		},
+		"ArasABS_properties_typeProperties_tenant": {
+			"value": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasABS_properties_typeProperties_servicePrincipalId": {
+			"value": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"ArasADLS_properties_typeProperties_url": {
+			"value": "https://arasdemostorage.dfs.core.windows.net/"
+		},
+		"ArasADLS_properties_typeProperties_tenant": {
+			"value": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasADLS_properties_typeProperties_servicePrincipalId": {
+			"value": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0812-165614-tibia842"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://li-jobs-api-test.azurewebsites.net"
+		},
+		"Demo Azure Databricks_properties_typeProperties_existingClusterId": {
+			"value": "0812-164905-tear862"
+		},
+		"Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"value": "0812-165614-tibia842"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_environmentUrl": {
+			"value": "https://edo.my.salesforce.com/"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_username": {
+			"value": "prasad.kona#@salesforce.demo"
+		},
+		"field eng east kpPool_properties_typeProperties_existingClusterId": {
+			"value": "0506-175016-photo39"
+		},
+		"itrusov_func_properties_typeProperties_functionAppUrl": {
+			"value": "https://itrusov-func.azurewebsites.net"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

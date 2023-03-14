@@ -1,0 +1,548 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "oneenv-adf"
+		},
+		"ArasABS_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'ArasABS'"
+		},
+		"ArasADDL_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ArasADDL'"
+		},
+		"ArasADLS_servicePrincipalCredential": {
+			"type": "secureString",
+			"metadata": "Secure string for 'servicePrincipalCredential' of 'ArasADLS'"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"AzureDatabricksDeltaLake1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricksDeltaLake1'"
+		},
+		"AzureDatabricks_LS_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
+		},
+		"AzureFunction1_functionKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
+		},
+		"Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Databricks'"
+		},
+		"Demo Azure Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Demo Azure Databricks'"
+		},
+		"LinkedCluster_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'LinkedCluster'"
+		},
+		"Oneenv Azure Databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Oneenv Azure Databricks'"
+		},
+		"Oneenv_AzureDatabricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'Oneenv_AzureDatabricks'"
+		},
+		"SQLMaintenanceDemo_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SQLMaintenanceDemo'"
+		},
+		"Salesforce_Aras_Demo_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Salesforce_Aras_Demo'"
+		},
+		"Salesforce_Aras_Demo_securityToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'securityToken' of 'Salesforce_Aras_Demo'"
+		},
+		"dbx-sample-config-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-config-test-ls'"
+		},
+		"dbx-sample-integration-test-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-integration-test-ls'"
+		},
+		"dbx-sample-monitor-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-monitor-ls'"
+		},
+		"dbx-sample-multi-task-pipeline-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-multi-task-pipeline-ls'"
+		},
+		"dbx-sample-score-ls_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'dbx-sample-score-ls'"
+		},
+		"ADLSLandingZone_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://maintlandingzone.dfs.core.windows.net"
+		},
+		"ArasABS_properties_typeProperties_serviceEndpoint": {
+			"type": "string",
+			"defaultValue": "https://arasazureblobstorage.blob.core.windows.net/"
+		},
+		"ArasABS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasABS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"ArasADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://arasdemostorage.dfs.core.windows.net/"
+		},
+		"ArasADLS_properties_typeProperties_tenant": {
+			"type": "string",
+			"defaultValue": "9f37a392-f0ae-4280-9796-f1864a10effc"
+		},
+		"ArasADLS_properties_typeProperties_servicePrincipalId": {
+			"type": "string",
+			"defaultValue": "a6a43a99-1538-427b-a23c-f60441437e06"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-165614-tibia842"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"type": "string",
+			"defaultValue": "https://li-jobs-api-test.azurewebsites.net"
+		},
+		"Demo Azure Databricks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-164905-tear862"
+		},
+		"Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0812-165614-tibia842"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_environmentUrl": {
+			"type": "string",
+			"defaultValue": "https://edo.my.salesforce.com/"
+		},
+		"Salesforce_Aras_Demo_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "prasad.kona#@salesforce.demo"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/ADLSLandingZone')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ADLSLandingZone_properties_typeProperties_url')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ArasABS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"serviceEndpoint": "[parameters('ArasABS_properties_typeProperties_serviceEndpoint')]",
+					"tenant": "[parameters('ArasABS_properties_typeProperties_tenant')]",
+					"servicePrincipalId": "[parameters('ArasABS_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalCredentialType": "ServicePrincipalKey",
+					"servicePrincipalCredential": {
+						"type": "SecureString",
+						"value": "[parameters('ArasABS_servicePrincipalCredential')]"
+					},
+					"accountKind": "BlobStorage"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ArasADDL')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricksDeltaLake",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net",
+					"clusterId": "0807-225846-motto493",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('ArasADDL_accessToken')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ArasADLS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('ArasADLS_properties_typeProperties_url')]",
+					"tenant": "[parameters('ArasADLS_properties_typeProperties_tenant')]",
+					"servicePrincipalId": "[parameters('ArasADLS_properties_typeProperties_servicePrincipalId')]",
+					"servicePrincipalCredentialType": "ServicePrincipalKey",
+					"servicePrincipalCredential": {
+						"type": "SecureString",
+						"value": "[parameters('ArasADLS_servicePrincipalCredential')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net/",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricksDeltaLake1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricksDeltaLake",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net",
+					"clusterId": "0807-225846-motto493",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricksDeltaLake1_accessToken')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks_LS')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks_LS_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "2",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "10.3.x-photon-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed",
+					"policyId": "D96178CF3A0001ED"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureFunction1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureFunction",
+				"typeProperties": {
+					"functionAppUrl": "[parameters('AzureFunction1_properties_typeProperties_functionAppUrl')]",
+					"functionKey": {
+						"type": "SecureString",
+						"value": "[parameters('AzureFunction1_functionKey')]"
+					},
+					"authentication": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Databricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricksDeltaLake",
+				"typeProperties": {
+					"domain": "https://adb-2541733722036151.11.azuredatabricks.net",
+					"clusterId": "0223-180910-mug84",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('Databricks_accessToken')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Demo Azure Databricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://eastus2.azuredatabricks.net/?o=5206439413157315",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('Demo Azure Databricks_accessToken')]"
+					},
+					"existingClusterId": "[parameters('Demo Azure Databricks_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LinkedCluster')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://eastus2.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('LinkedCluster_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_F4s",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "7.2.x-cpu-ml-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Oneenv Azure Databricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net/?o=984752964297111#",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('Oneenv Azure Databricks_accessToken')]"
+					},
+					"instancePoolId": "1210-165911-ode530-pool-bLvZ9XkK",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "10.4.x-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Oneenv_AzureDatabricks')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net/",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('Oneenv_AzureDatabricks_accessToken')]"
+					},
+					"existingClusterId": "[parameters('Oneenv_AzureDatabricks_properties_typeProperties_existingClusterId')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SQLMaintenanceDemo')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"connectionString": "[parameters('SQLMaintenanceDemo_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Salesforce_Aras_Demo')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "Salesforce",
+				"typeProperties": {
+					"environmentUrl": "[parameters('Salesforce_Aras_Demo_properties_typeProperties_environmentUrl')]",
+					"username": "[parameters('Salesforce_Aras_Demo_properties_typeProperties_username')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('Salesforce_Aras_Demo_password')]"
+					},
+					"securityToken": {
+						"type": "SecureString",
+						"value": "[parameters('Salesforce_Aras_Demo_securityToken')]"
+					},
+					"apiVersion": "55.0"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dbx-sample-config-test-ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://curriculum.cloud.databricks.com",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('dbx-sample-config-test-ls_accessToken')]"
+					},
+					"newClusterNodeType": "i3.xlarge",
+					"newClusterNumOfWorker": 1,
+					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dbx-sample-integration-test-ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://curriculum.cloud.databricks.com",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('dbx-sample-integration-test-ls_accessToken')]"
+					},
+					"newClusterNodeType": "i3.xlarge",
+					"newClusterNumOfWorker": 1,
+					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dbx-sample-monitor-ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://curriculum.cloud.databricks.com",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('dbx-sample-monitor-ls_accessToken')]"
+					},
+					"newClusterNodeType": "i3.xlarge",
+					"newClusterNumOfWorker": 1,
+					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dbx-sample-multi-task-pipeline-ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://db-sme-demo-ml-practice.cloud.databricks.com",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('dbx-sample-multi-task-pipeline-ls_accessToken')]"
+					},
+					"newClusterNumOfWorker": "1",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/dbx-sample-score-ls')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://curriculum.cloud.databricks.com",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('dbx-sample-score-ls_accessToken')]"
+					},
+					"newClusterNodeType": "i3.xlarge",
+					"newClusterNumOfWorker": 1,
+					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
+					"newClusterInitScripts": [],
+					"clusterOption": "Fixed"
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
