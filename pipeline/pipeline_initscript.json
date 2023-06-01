@@ -17,7 +17,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/piotr.majer@databricks.com/test_pm"
+					"notebookPath": "/Users/saurabh.shukla@databricks.com/temp"
 				},
 				"linkedServiceName": {
 					"referenceName": "Oneenv Azure Databricks",
