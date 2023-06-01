@@ -271,8 +271,8 @@
 						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
 					},
 					"newClusterVersion": "10.3.x-photon-scala2.12",
-					"newClusterInitScripts": [],
 					"clusterOption": "Fixed",
+					"newClusterInitScripts": [],
 					"policyId": "D96178CF3A0001ED"
 				}
 			},
@@ -351,8 +351,8 @@
 						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
 					},
 					"newClusterVersion": "7.2.x-cpu-ml-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
@@ -370,14 +370,15 @@
 						"type": "SecureString",
 						"value": "[parameters('Oneenv Azure Databricks_accessToken')]"
 					},
-					"instancePoolId": "1210-165911-ode530-pool-bLvZ9XkK",
+					"newClusterNodeType": "Standard_DS3_v2",
 					"newClusterNumOfWorker": "1",
 					"newClusterSparkEnvVars": {
 						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
 					},
-					"newClusterVersion": "10.4.x-scala2.12",
+					"newClusterVersion": "11.3.x-scala2.12",
+					"clusterOption": "Fixed",
 					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"policyId": "D9643F5D14000433"
 				}
 			},
 			"dependsOn": []
@@ -452,8 +453,8 @@
 					"newClusterNodeType": "i3.xlarge",
 					"newClusterNumOfWorker": 1,
 					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
@@ -474,8 +475,8 @@
 					"newClusterNodeType": "i3.xlarge",
 					"newClusterNumOfWorker": 1,
 					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
@@ -496,8 +497,8 @@
 					"newClusterNodeType": "i3.xlarge",
 					"newClusterNumOfWorker": 1,
 					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
@@ -516,8 +517,8 @@
 						"value": "[parameters('dbx-sample-multi-task-pipeline-ls_accessToken')]"
 					},
 					"newClusterNumOfWorker": "1",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
@@ -538,8 +539,8 @@
 					"newClusterNodeType": "i3.xlarge",
 					"newClusterNumOfWorker": 1,
 					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
-					"newClusterInitScripts": [],
-					"clusterOption": "Fixed"
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": []
 				}
 			},
 			"dependsOn": []
