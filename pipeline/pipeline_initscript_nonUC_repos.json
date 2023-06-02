@@ -17,7 +17,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/saurabh.shukla@databricks.com/temp"
+					"notebookPath": "/Users/saurabh.shukla@databricks.com/initscript_repos_test"
 				},
 				"linkedServiceName": {
 					"referenceName": "Oneenv Azure Databricks",
