@@ -1,5 +1,5 @@
 {
-	"name": "pipeline_initscript",
+	"name": "pipeline_initscript_nonUC",
 	"properties": {
 		"description": "test",
 		"activities": [
