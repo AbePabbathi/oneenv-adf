@@ -20,7 +20,7 @@
 					"notebookPath": "/Users/saurabh.shukla@databricks.com/temp"
 				},
 				"linkedServiceName": {
-					"referenceName": "Oneenv Azure Databricks",
+					"referenceName": "AzureDatabricks_initscript_test",
 					"type": "LinkedServiceReference"
 				}
 			}
