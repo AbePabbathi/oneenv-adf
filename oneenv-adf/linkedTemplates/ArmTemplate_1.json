@@ -940,14 +940,16 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/fleetmaintenance-copy-demo')]",
+			"name": "[concat(parameters('factoryName'), '/pipeline_initscript_nonUC_repos')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"description": "test",
 				"activities": [
 					{
-						"name": "copy_maintenance_header to landing",
-						"type": "Copy",
+						"name": "Notebook1",
+						"description": "test",
+						"type": "DatabricksNotebook",
 						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
@@ -958,126 +960,22 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT * FROM [dbo].[maintenance_header]",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
+							"notebookPath": "/Users/saurabh.shukla@databricks.com/initscript_repos_test"
 						},
-						"inputs": [
-							{
-								"referenceName": "ds_sql_fleetmaintenance",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "ds_adls_parquet_maintenanceheader",
-								"type": "DatasetReference",
-								"parameters": {
-									"Directory": "fleetmaintenance/maintenanceheader",
-									"FileName": {
-										"value": "@concat('maintenanceheader_', guid(), '.parquet' )",
-										"type": "Expression"
-									}
-								}
-							}
-						]
-					},
-					{
-						"name": "copy_power_output to landing",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "7.00:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"sqlReaderQuery": "SELECT * FROM [dbo].[power_output] ",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "ParquetSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "ParquetWriteSettings"
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "ds_sql_fleetmaintenance",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "ds_adls_parquet_maintenanceheader",
-								"type": "DatasetReference",
-								"parameters": {
-									"Directory": "fleetmaintenance/poweroutput",
-									"FileName": {
-										"value": "@concat('poweroutput_', guid(), '.parquet' )",
-										"type": "Expression"
-									}
-								}
-							}
-						]
+						"linkedServiceName": {
+							"referenceName": "Oneenv Azure Databricks",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
 				},
-				"folder": {
-					"name": "iotdemo"
-				},
 				"annotations": [],
-				"lastPublishTime": "2021-04-15T20:09:29Z"
+				"lastPublishTime": "2021-11-18T10:01:40Z"
 			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/ds_sql_fleetmaintenance')]",
-				"[concat(variables('factoryId'), '/datasets/ds_adls_parquet_maintenanceheader')]"
-			]
+			"dependsOn": []
 		}
 	]
 }

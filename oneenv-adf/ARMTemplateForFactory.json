@@ -1808,7 +1808,7 @@
 					"newClusterVersion": "11.3.x-scala2.12",
 					"clusterOption": "Autoscaling",
 					"newClusterInitScripts": [],
-					"policyId": "D9643F5D14000663"
+					"policyId": "D9643F5D140006A1"
 				}
 			},
 			"dependsOn": []
@@ -2195,6 +2195,46 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/ds_sql_fleetmaintenance')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pipeline_initscript_nonUC_repos')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "test",
+				"activities": [
+					{
+						"name": "Notebook1",
+						"description": "test",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/saurabh.shukla@databricks.com/initscript_repos_test"
+						},
+						"linkedServiceName": {
+							"referenceName": "Oneenv Azure Databricks",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2021-11-18T10:01:40Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/Oneenv Azure Databricks')]"
 			]
 		}
 	]

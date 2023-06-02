@@ -378,7 +378,7 @@
 					"newClusterVersion": "11.3.x-scala2.12",
 					"clusterOption": "Autoscaling",
 					"newClusterInitScripts": [],
-					"policyId": "D9643F5D14000663"
+					"policyId": "D9643F5D140006A1"
 				}
 			},
 			"dependsOn": []
