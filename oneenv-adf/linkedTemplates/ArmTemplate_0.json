@@ -371,14 +371,14 @@
 						"value": "[parameters('Oneenv Azure Databricks_accessToken')]"
 					},
 					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
+					"newClusterNumOfWorker": "2:3",
 					"newClusterSparkEnvVars": {
 						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
 					},
 					"newClusterVersion": "11.3.x-scala2.12",
-					"clusterOption": "Fixed",
+					"clusterOption": "Autoscaling",
 					"newClusterInitScripts": [],
-					"policyId": "D9643F5D14000433"
+					"policyId": "D9643F5D14000663"
 				}
 			},
 			"dependsOn": []
