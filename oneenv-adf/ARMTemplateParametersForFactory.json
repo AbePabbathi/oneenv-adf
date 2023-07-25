@@ -23,6 +23,9 @@
 		"AzureDatabricks_LS_accessToken": {
 			"value": ""
 		},
+		"AzureDatabricks_initscript_test_accessToken": {
+			"value": ""
+		},
 		"AzureFunction1_functionKey": {
 			"value": ""
 		},

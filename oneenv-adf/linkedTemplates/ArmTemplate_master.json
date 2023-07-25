@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
 		},
+		"AzureDatabricks_initscript_test_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_initscript_test'"
+		},
 		"AzureFunction1_functionKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
@@ -224,6 +228,9 @@
 					"AzureDatabricks_LS_accessToken": {
 						"value": "[parameters('AzureDatabricks_LS_accessToken')]"
 					},
+					"AzureDatabricks_initscript_test_accessToken": {
+						"value": "[parameters('AzureDatabricks_initscript_test_accessToken')]"
+					},
 					"AzureFunction1_functionKey": {
 						"value": "[parameters('AzureFunction1_functionKey')]"
 					},
@@ -262,9 +269,6 @@
 					},
 					"dbx-sample-multi-task-pipeline-ls_accessToken": {
 						"value": "[parameters('dbx-sample-multi-task-pipeline-ls_accessToken')]"
-					},
-					"dbx-sample-score-ls_accessToken": {
-						"value": "[parameters('dbx-sample-score-ls_accessToken')]"
 					},
 					"ADLSLandingZone_properties_typeProperties_url": {
 						"value": "[parameters('ADLSLandingZone_properties_typeProperties_url')]"
@@ -322,6 +326,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"dbx-sample-score-ls_accessToken": {
+						"value": "[parameters('dbx-sample-score-ls_accessToken')]"
 					},
 					"dbx-sample-train-ls_accessToken": {
 						"value": "[parameters('dbx-sample-train-ls_accessToken')]"

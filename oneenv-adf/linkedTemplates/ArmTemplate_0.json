@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_LS'"
 		},
+		"AzureDatabricks_initscript_test_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks_initscript_test'"
+		},
 		"AzureFunction1_functionKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'functionKey' of 'AzureFunction1'"
@@ -82,10 +86,6 @@
 		"dbx-sample-multi-task-pipeline-ls_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'dbx-sample-multi-task-pipeline-ls'"
-		},
-		"dbx-sample-score-ls_accessToken": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accessToken' of 'dbx-sample-score-ls'"
 		},
 		"ADLSLandingZone_properties_typeProperties_url": {
 			"type": "string",
@@ -274,6 +274,33 @@
 					"clusterOption": "Fixed",
 					"newClusterInitScripts": [],
 					"policyId": "D96178CF3A0001ED"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureDatabricks_initscript_test')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-984752964297111.11.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('AzureDatabricks_initscript_test_accessToken')]"
+					},
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "11.3.x-scala2.12",
+					"clusterOption": "Fixed",
+					"newClusterInitScripts": [
+						"dbfs:/initscript.sh"
+					]
 				}
 			},
 			"dependsOn": []
@@ -517,28 +544,6 @@
 						"value": "[parameters('dbx-sample-multi-task-pipeline-ls_accessToken')]"
 					},
 					"newClusterNumOfWorker": "1",
-					"clusterOption": "Fixed",
-					"newClusterInitScripts": []
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/dbx-sample-score-ls')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureDatabricks",
-				"typeProperties": {
-					"domain": "https://curriculum.cloud.databricks.com",
-					"accessToken": {
-						"type": "SecureString",
-						"value": "[parameters('dbx-sample-score-ls_accessToken')]"
-					},
-					"newClusterNodeType": "i3.xlarge",
-					"newClusterNumOfWorker": 1,
-					"newClusterVersion": "10.4.x-cpu-ml-scala2.12",
 					"clusterOption": "Fixed",
 					"newClusterInitScripts": []
 				}
