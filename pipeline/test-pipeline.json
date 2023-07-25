@@ -1,5 +1,5 @@
 {
-	"name": "pipeline4",
+	"name": "test-pipeline",
 	"properties": {
 		"activities": [
 			{
@@ -21,6 +21,9 @@
 			"test": {
 				"type": "String"
 			}
+		},
+		"folder": {
+			"name": "uday-satapathy"
 		},
 		"annotations": []
 	}
