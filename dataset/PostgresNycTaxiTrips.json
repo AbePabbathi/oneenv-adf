@@ -1,0 +1,16 @@
+{
+	"name": "PostgresNycTaxiTrips",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DustinPostgres",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "public",
+			"table": "nyctaxi_trip"
+		}
+	}
+}
