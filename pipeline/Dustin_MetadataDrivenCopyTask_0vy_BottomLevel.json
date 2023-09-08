@@ -252,6 +252,8 @@
 											{
 												"name": "UpdateWatermarkColumnValue",
 												"type": "SqlServerStoredProcedure",
+												"state": "Inactive",
+												"onInactiveMarkAs": "Succeeded",
 												"dependsOn": [
 													{
 														"activity": "DeltaLoadOneObject",
