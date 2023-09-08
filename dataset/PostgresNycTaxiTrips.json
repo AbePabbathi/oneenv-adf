@@ -9,13 +9,25 @@
 		"type": "AzurePostgreSqlTable",
 		"schema": [
 			{
-				"name": "dolocationid",
+				"name": "dropoff_longitude",
 				"type": "character varying",
 				"precision": 0,
 				"scale": 0
 			},
 			{
-				"name": "pulocationid",
+				"name": "dropoff_latitude",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "pickup_longitude",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "pickup_latitude",
 				"type": "character varying",
 				"precision": 0,
 				"scale": 0
@@ -111,21 +123,15 @@
 				"scale": 0
 			},
 			{
-				"name": "source",
-				"type": "character varying",
-				"precision": 0,
-				"scale": 0
-			},
-			{
-				"name": "pickup_date",
-				"type": "character varying",
+				"name": "modified_timestamp",
+				"type": "timestamp without time zone",
 				"precision": 0,
 				"scale": 0
 			}
 		],
 		"typeProperties": {
 			"schema": "public",
-			"table": "nyctaxi_trip"
+			"table": "trip"
 		}
 	}
 }
