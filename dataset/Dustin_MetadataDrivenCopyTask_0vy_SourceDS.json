@@ -1,0 +1,33 @@
+{
+	"name": "Dustin_MetadataDrivenCopyTask_0vy_SourceDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DustinPostgres",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_schema": {
+				"type": "String"
+			},
+			"cw_table": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Dustin_MetadataDrivenCopyTask_0vy_20230908"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().cw_schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().cw_table",
+				"type": "Expression"
+			}
+		}
+	}
+}
