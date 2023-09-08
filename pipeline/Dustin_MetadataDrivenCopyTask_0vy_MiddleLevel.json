@@ -76,26 +76,32 @@
 		],
 		"parameters": {
 			"MaxNumberOfObjectsReturnedFromLookupActivity": {
-				"type": "Int"
+				"type": "Int",
+				"defaultValue": 1
 			},
 			"TopLevelPipelineName": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "NA"
 			},
 			"TriggerName": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "NA"
 			},
 			"CurrentSequentialNumberOfBatch": {
-				"type": "Int"
+				"type": "Int",
+				"defaultValue": 1
 			},
 			"SumOfObjectsToCopy": {
-				"type": "Int"
+				"type": "Int",
+				"defaultValue": 1
 			},
 			"SumOfObjectsToCopyForCurrentBatch": {
-				"type": "Int"
+				"type": "Int",
+				"defaultValue": 1
 			},
 			"MainControlTableName": {
 				"type": "String",
-				"defaultValue": "public.control_table"
+				"defaultValue": "demo.public.control_table"
 			}
 		},
 		"folder": {
