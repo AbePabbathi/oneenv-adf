@@ -1,0 +1,16 @@
+{
+	"name": "DustinDelta",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DatabricksFieldEngEast",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "field_demos.dv_dev",
+			"table": "trip"
+		},
+		"schema": []
+	}
+}
