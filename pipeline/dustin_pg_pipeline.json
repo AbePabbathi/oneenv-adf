@@ -5,6 +5,8 @@
 			{
 				"name": "nyctaxi_CSV_to_PG",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -289,6 +291,8 @@
 			{
 				"name": "nyctaxi_PG_to_Delta",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "nyctaxi_CSV_to_PG",
@@ -331,6 +335,33 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "dustin_pg_dataflow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dustin_pg_dataflow",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine",
+					"continuationSettings": {
+						"customizedCheckpointKey": "3c937efb-6362-4c55-abcd-43e0be71afc3"
+					}
+				}
 			}
 		],
 		"annotations": []
