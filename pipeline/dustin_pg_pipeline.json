@@ -354,10 +354,10 @@
 						"type": "DataFlowReference"
 					},
 					"compute": {
-						"coreCount": 16,
+						"coreCount": 32,
 						"computeType": "General"
 					},
-					"traceLevel": "Coarse",
+					"traceLevel": "Fine",
 					"continuationSettings": {
 						"customizedCheckpointKey": "3c937efb-6362-4c55-abcd-43e0be71afc3"
 					}
