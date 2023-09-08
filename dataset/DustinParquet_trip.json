@@ -1,0 +1,20 @@
+{
+	"name": "DustinParquet_trip",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "oneenv_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "external_loc_1/pg_cdf",
+				"fileSystem": "dustinvannoy"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

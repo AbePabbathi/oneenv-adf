@@ -1,0 +1,67 @@
+{
+	"name": "dustin_pg_dataflow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "PostgresNycTaxiTrips",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DustinParquet_trip",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          dropoff_longitude as string,",
+				"          dropoff_latitude as string,",
+				"          pickup_longitude as string,",
+				"          pickup_latitude as string,",
+				"          ratecodeid as string,",
+				"          vendorid as string,",
+				"          extra as string,",
+				"          fare_amount as string,",
+				"          improvement_surcharge as string,",
+				"          mta_tax as string,",
+				"          passenger_count as string,",
+				"          payment_type as string,",
+				"          store_and_fwd_flag as string,",
+				"          tip_amount as string,",
+				"          tolls_amount as string,",
+				"          total_amount as string,",
+				"          tpep_dropoff_datetime as string,",
+				"          tpep_pickup_datetime as string,",
+				"          trip_distance as string,",
+				"          modified_timestamp as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     enableCdc: true,",
+				"     mode: 'read',",
+				"     skipInitialLoad: false,",
+				"     waterMarkColumn: 'modified_timestamp',",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
+			]
+		}
+	}
+}
