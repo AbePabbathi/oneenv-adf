@@ -44,7 +44,19 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "dolocationid",
+									"name": "dropoff_longitude",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "dropoff_latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "dropoff_latitude",
 									"type": "String",
 									"physicalType": "character varying"
 								}
@@ -56,7 +68,19 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "pulocationid",
+									"name": "pickup_longitude",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "pickup_latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pickup_latitude",
 									"type": "String",
 									"physicalType": "character varying"
 								}
