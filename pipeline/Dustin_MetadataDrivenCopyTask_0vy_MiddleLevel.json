@@ -94,7 +94,8 @@
 				"type": "Int"
 			},
 			"MainControlTableName": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "public.control_table"
 			}
 		},
 		"folder": {
