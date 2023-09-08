@@ -1,0 +1,38 @@
+{
+	"name": "nyc_taxi_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "oneenv_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "yellow_tripdata_2016-01.csv.gz",
+				"folderPath": "external_loc_1/source/tripdata/yellow",
+				"fileSystem": "dustinvannoy"
+			},
+			"columnDelimiter": ",",
+			"compressionCodec": "gzip",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "\u001f�\b\bo0�^\u0002\u0003yellow_tripdata_2016-01.csv\u0000��˲-�q%6����?���x?j��&\u0018h 3�`ed��5\t�������\u0015���\u0019ynn�d?py����\b._����������Ǐ����_���?����Ͽ��_~������\u001f��?�������]��_������o����������?~�۟�������?��v�;��/��?��������������������/�����o���������������C�����ȿ௿�����Ͽ�������~���7��0�����~��\u001f�������?~'����_����.��O��׿����m�+�������׿�\u001b������\u001f�����#8_����?�͹_�����������w\u0017��.y�s�?���1��SL����\u000f��\u000f�G�o)�O�<4$W�/��\u001e+���W����࿿���>����_��k�6�s�5��g���w�\u001b��{�}Y�R\"sJ)�\u0017��V|�-�R�G}�\u0019��W��:���?�ؼ�����\t���Yj�%��K�y\u0019�] k\\I)�Ha\\k=���\u001a�[b�\u001f��f\\L�\u001a��话\u001f\u0016�1�\u0016���\u001b�v�=T��˸\u0012\u0002�\u001fJ*��4~�\\#�WM.�4��/�",
+				"type": "String"
+			},
+			{
+				"name": "{r�3������JW\u0002��Z����\u001b��\u0014�[/�j%˒�#ŏ施���]L{}�|�%�=�\u001c��y_k��W�5J�%:$�[�\u0007�",
+				"type": "String"
+			},
+			{
+				"name": "�1u\u0017詌\u00171~�D�|��5G7\u0017��o\u001f5���\u0016�/)�G��&�K�\u001f*�W�;htH�",
+				"type": "String"
+			}
+		]
+	}
+}
