@@ -1,0 +1,19 @@
+{
+	"name": "Dustin_MetadataDrivenCopyTask_0vy_ControlDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SQLMaintenanceDemo",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Dustin_MetadataDrivenCopyTask_0vy_20230908"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "MainControlTable_0vy"
+		}
+	}
+}
