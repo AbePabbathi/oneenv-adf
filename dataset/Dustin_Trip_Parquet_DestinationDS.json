@@ -5,20 +5,6 @@
 			"referenceName": "oneenv_adls",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"cw_compressionCodec": {
-				"type": "String"
-			},
-			"cw_fileName": {
-				"type": "Object"
-			},
-			"cw_folderPath": {
-				"type": "String"
-			},
-			"cw_fileSystem": {
-				"type": "String"
-			}
-		},
 		"folder": {
 			"name": "Dustin_MetadataDrivenCopyTask_0vy_20230908"
 		},
