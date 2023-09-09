@@ -344,25 +344,13 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "Dustin_MetadataDrivenCopyTask_0vy_DestinationDS",
+						"referenceName": "Dustin_Trip_Parquet_DestinationDS",
 						"type": "DatasetReference",
 						"parameters": {
-							"cw_compressionCodec": {
-								"value": "snappy",
-								"type": "Expression"
-							},
-							"cw_fileName": {
-								"value": "trip",
-								"type": "Expression"
-							},
-							"cw_folderPath": {
-								"value": "external_loc_1/pg_cdf",
-								"type": "Expression"
-							},
-							"cw_fileSystem": {
-								"value": "dustinvannoy",
-								"type": "Expression"
-							}
+							"cw_compressionCodec": "snappy",
+							"cw_fileName": "trip",
+							"cw_folderPath": "external_loc_1/pg_cdf",
+							"cw_fileSystem": "abfss://dustinvannoy@oneenvadls.dfs.core.windows.net"
 						}
 					}
 				]
