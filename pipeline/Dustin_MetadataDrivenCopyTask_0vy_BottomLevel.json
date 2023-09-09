@@ -23,7 +23,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"on": {
-									"value": "@json(item().DataLoadingBehaviorSettings).dataLoadingBehavior",
+									"value": "@json('{\"dataLoadingBehavior\": \"DeltaLoad\",  \"watermarkColumnName\": \"modified_timestamp\",  \"watermarkColumnType\": \"DateTime\",  \"watermarkColumnStartValue\": \"2023-09-07T00:00:00.000Z\" }').dataLoadingBehavior",
 									"type": "Expression"
 								},
 								"cases": [
