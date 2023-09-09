@@ -37,7 +37,7 @@
 				}
 			},
 			{
-				"name": "DeltaLoadOneObject",
+				"name": "DeltaLoadOneObject2",
 				"description": "Copy the changed data only from last time via comparing the value in watermark column to identify changes.",
 				"type": "Copy",
 				"dependsOn": [
@@ -360,7 +360,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "DeltaLoadOneObject",
+						"activity": "DeltaLoadOneObject2",
 						"dependencyConditions": [
 							"Succeeded"
 						]
