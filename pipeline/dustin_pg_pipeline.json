@@ -440,14 +440,14 @@
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"copyBehavior": "FlattenHierarchy"
 						},
 						"formatSettings": {
 							"type": "ParquetWriteSettings"
 						}
 					},
 					"enableStaging": false,
-					"validateDataConsistency": false,
 					"translator": {
 						"type": "TabularTranslator",
 						"typeConversion": true,
