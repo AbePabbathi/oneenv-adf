@@ -33,7 +33,7 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzurePostgreSqlSource",
-									"query": "WITH OrderedControlTable AS (\n                             SELECT *, ROW_NUMBER() OVER (ORDER BY TaskId, Id DESC) AS RowNumber\n                             FROM demo.public.control_table\n                             )\n                             SELECT * FROM OrderedControlTable WHERE RowNumber BETWEEN @{add(mul(int(item()),pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity),\n                             add(mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, pipeline().parameters.CurrentSequentialNumberOfBatch), 1))}\n                             AND @{min(add(mul(int(item()), pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity), add(mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, pipeline().parameters.CurrentSequentialNumberOfBatch),\n                             pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity)),\n                            mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, add(pipeline().parameters.CurrentSequentialNumberOfBatch,1)), pipeline().parameters.SumOfObjectsToCopy)}",
+									"query": "WITH OrderedControlTable AS (\n                             SELECT *, ROW_NUMBER() OVER (ORDER BY TaskId, Id DESC) AS RowNumber\n                             FROM demo.public.control_table2\n                             )\n                             SELECT * FROM OrderedControlTable WHERE RowNumber BETWEEN @{add(mul(int(item()),pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity),\n                             add(mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, pipeline().parameters.CurrentSequentialNumberOfBatch), 1))}\n                             AND @{min(add(mul(int(item()), pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity), add(mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, pipeline().parameters.CurrentSequentialNumberOfBatch),\n                             pipeline().parameters.MaxNumberOfObjectsReturnedFromLookupActivity)),\n                            mul(pipeline().parameters.SumOfObjectsToCopyForCurrentBatch, add(pipeline().parameters.CurrentSequentialNumberOfBatch,1)), pipeline().parameters.SumOfObjectsToCopy)}",
 									"partitionOption": "None"
 								},
 								"dataset": {
@@ -77,7 +77,7 @@
 		"parameters": {
 			"MaxNumberOfObjectsReturnedFromLookupActivity": {
 				"type": "Int",
-				"defaultValue": 1
+				"defaultValue": 5
 			},
 			"TopLevelPipelineName": {
 				"type": "String",
@@ -89,15 +89,15 @@
 			},
 			"CurrentSequentialNumberOfBatch": {
 				"type": "Int",
-				"defaultValue": 1
+				"defaultValue": 0
 			},
 			"SumOfObjectsToCopy": {
 				"type": "Int",
-				"defaultValue": 1
+				"defaultValue": 5
 			},
 			"SumOfObjectsToCopyForCurrentBatch": {
 				"type": "Int",
-				"defaultValue": 1
+				"defaultValue": 5
 			},
 			"MainControlTableName": {
 				"type": "String",
