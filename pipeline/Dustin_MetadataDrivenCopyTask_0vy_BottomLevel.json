@@ -394,16 +394,35 @@
 				"defaultValue": [
 					{
 						"id": 1,
-						"sourceobjectsettings": "{\n            \"schema\": \"public\",\n            \"table\": \"trip\"\n        }",
-						"sourceconnectionsettingsname": null,
-						"copysourcesettings": "{\n            \"partitionLowerBound\": null,\n            \"partitionUpperBound\": null,\n            \"partitionColumnName\": null,\n            \"partitionNames\": null\n        }",
-						"sinkobjectsettings": "{\n            \"compressionCodec\": \"snappy\",\n            \"fileName\": null,\n            \"folderPath\": \"external_loc_1/pg_cdf\",\n            \"fileSystem\": \"dustinvannoy\"\n        }",
+						"sourceobjectsettings": {
+							"schema": "public",
+							"table": "trip"
+						},
+						"sinkobjectsettings": {
+							"compressionCodec": "snappy",
+							"fileName": null,
+							"folderPath": "external_loc_1/pg_cdf",
+							"fileSystem": "dustinvannoy"
+						},
 						"sinkconnectionsettingsname": null,
 						"copysinksettings": null,
-						"copyactivitysettings": "{\n            \"translator\": {\n                \"type\": \"TabularTranslator\",\n                \"typeConversion\": true\n            }\n        }",
+						"copyactivitysettings": {
+							"translator": {
+								"type": "TabularTranslator",
+								"typeConversion": true
+							}
+						},
 						"toplevelpipelinename": "Dustin_MetadataDrivenCopyTask_0vy_TopLevel",
-						"triggername": "[\n            \"Sandbox\",\n            \"Manual\"\n        ]",
-						"dataloadingbehaviorsettings": "{\n            \"dataLoadingBehavior\": \"DeltaLoad\",\n            \"watermarkColumnName\": \"modified_timestamp\",\n            \"watermarkColumnType\": \"DateTime\",\n            \"watermarkColumnStartValue\": \"2023-09-07T00:00:00.000Z\"\n        }",
+						"triggername": [
+							"Sandbox",
+							"Manual"
+						],
+						"dataloadingbehaviorsettings": {
+							"dataLoadingBehavior": "DeltaLoad",
+							"watermarkColumnName": "modified_timestamp",
+							"watermarkColumnType": "DateTime",
+							"watermarkColumnStartValue": "2023-09-07T00:00:00.000Z"
+						},
 						"taskid": 0,
 						"copyenabled": true,
 						"rownumber": 1
