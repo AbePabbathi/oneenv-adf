@@ -369,7 +369,14 @@
 				"name": "GetMaxWatermarkValue",
 				"description": "Query the source object to get the max value from watermark column",
 				"type": "Lookup",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Set watermark_end",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -425,7 +432,7 @@
 					"source": {
 						"type": "AzurePostgreSqlSource",
 						"query": {
-							"value": "select * from public.trip \n    where modified_timestamp > \n    @{activity('GetMaxWatermarkValue').output.firstRow.CurrentMaxWaterMarkColumnValue}",
+							"value": "select * from public.trip \n    where modified_timestamp > \n    @{activity('GetMaxWatermarkValue').output.firstRow.CurrentMaxWaterMarkColumnValue}\n    and \n        modified_timestamp <= @{variables('watermark_end')}",
 							"type": "Expression"
 						},
 						"partitionOption": "None"
@@ -480,8 +487,65 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "Update Watermark",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "DeltaLoadOneObject",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"query": {
+							"value": "SELECT update_watermark('@{variables('watermark_end')}');",
+							"type": "Expression"
+						},
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "PostgresControlTable",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": true
+				}
+			},
+			{
+				"name": "Set watermark_end",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "watermark_end",
+					"value": {
+						"value": "@utcnow()",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"variables": {
+			"watermark_end": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
