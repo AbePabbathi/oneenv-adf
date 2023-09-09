@@ -414,11 +414,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "@{json(item().SourceObjectSettings).schema}.@{json(item().SourceObjectSettings).table}"
+						"value": "trip"
 					},
 					{
 						"name": "Destination",
-						"value": "@{json(item().SinkObjectSettings).fileSystem}/@{json(item().SinkObjectSettings).folderPath}/@{json(item().SinkObjectSettings).fileName}"
+						"value": "ext_loc_1/pg/trip"
 					}
 				],
 				"typeProperties": {
