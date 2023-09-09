@@ -441,8 +441,12 @@
 					"enableStaging": false,
 					"validateDataConsistency": false,
 					"translator": {
-						"value": "@json(item().CopyActivitySettings).translator",
-						"type": "Expression"
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
 					}
 				},
 				"inputs": [
