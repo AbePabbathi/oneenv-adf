@@ -60,7 +60,7 @@
 					"source": {
 						"type": "AzurePostgreSqlSource",
 						"query": {
-							"value": "select * from public.trip \n    where modified_timestamp > \n    @{activity('GetMaxWatermarkValue').output.firstRow.CurrentMaxWaterMarkColumnValue}\n    and \n        modified_timestamp <= @{variables('watermark_end')}",
+							"value": "select * from public.trip",
 							"type": "Expression"
 						},
 						"partitionOption": "None"
