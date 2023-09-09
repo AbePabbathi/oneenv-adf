@@ -22,14 +22,11 @@
 					"type": "Expression"
 				},
 				"fileSystem": {
-					"value": "abfss://dustinvannoy@oneenvadls.dfs.core.windows.net",
+					"value": "dustinvannoy",
 					"type": "Expression"
 				}
 			},
-			"compressionCodec": {
-				"value": "snappy",
-				"type": "Expression"
-			}
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	}
