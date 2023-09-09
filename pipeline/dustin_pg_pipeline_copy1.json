@@ -55,16 +55,7 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "trip"
-					},
-					{
-						"name": "Destination",
-						"value": "ext_loc_1/pg/trip"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzurePostgreSqlSource",
