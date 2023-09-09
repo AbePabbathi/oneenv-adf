@@ -390,7 +390,25 @@
 		],
 		"parameters": {
 			"ObjectsPerGroupToCopy": {
-				"type": "Array"
+				"type": "Array",
+				"defaultValue": [
+					{
+						"id": 1,
+						"sourceobjectsettings": "{\n            \"schema\": \"public\",\n            \"table\": \"trip\"\n        }",
+						"sourceconnectionsettingsname": null,
+						"copysourcesettings": "{\n            \"partitionLowerBound\": null,\n            \"partitionUpperBound\": null,\n            \"partitionColumnName\": null,\n            \"partitionNames\": null\n        }",
+						"sinkobjectsettings": "{\n            \"compressionCodec\": \"snappy\",\n            \"fileName\": null,\n            \"folderPath\": \"external_loc_1/pg_cdf\",\n            \"fileSystem\": \"dustinvannoy\"\n        }",
+						"sinkconnectionsettingsname": null,
+						"copysinksettings": null,
+						"copyactivitysettings": "{\n            \"translator\": {\n                \"type\": \"TabularTranslator\",\n                \"typeConversion\": true\n            }\n        }",
+						"toplevelpipelinename": "Dustin_MetadataDrivenCopyTask_0vy_TopLevel",
+						"triggername": "[\n            \"Sandbox\",\n            \"Manual\"\n        ]",
+						"dataloadingbehaviorsettings": "{\n            \"dataLoadingBehavior\": \"DeltaLoad\",\n            \"watermarkColumnName\": \"modified_timestamp\",\n            \"watermarkColumnType\": \"DateTime\",\n            \"watermarkColumnStartValue\": \"2023-09-07T00:00:00.000Z\"\n        }",
+						"taskid": 0,
+						"copyenabled": true,
+						"rownumber": 1
+					}
+				]
 			}
 		},
 		"folder": {
