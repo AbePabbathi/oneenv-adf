@@ -427,7 +427,8 @@
 						"query": {
 							"value": "select * from public.trip \n    where modified_timestamp > \n    @{activity('GetMaxWatermarkValue').output.firstRow.CurrentMaxWaterMarkColumnValue}",
 							"type": "Expression"
-						}
+						},
+						"partitionOption": "None"
 					},
 					"sink": {
 						"type": "ParquetSink",
