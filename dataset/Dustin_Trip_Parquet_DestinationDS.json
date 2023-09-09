@@ -1,0 +1,50 @@
+{
+	"name": "Dustin_Trip_Parquet_DestinationDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "oneenv_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_compressionCodec": {
+				"type": "String"
+			},
+			"cw_fileName": {
+				"type": "Object"
+			},
+			"cw_folderPath": {
+				"type": "String"
+			},
+			"cw_fileSystem": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Dustin_MetadataDrivenCopyTask_0vy_20230908"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "trip",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "external_loc_1/pg_cdf",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "abfss://dustinvannoy@oneenvadls.dfs.core.windows.net",
+					"type": "Expression"
+				}
+			},
+			"compressionCodec": {
+				"value": "snappy",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
