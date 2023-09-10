@@ -13,10 +13,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "trip",
-					"type": "Expression"
-				},
 				"folderPath": {
 					"value": "external_loc_1/pg_cdf",
 					"type": "Expression"
