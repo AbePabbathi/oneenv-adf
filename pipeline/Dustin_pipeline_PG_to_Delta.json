@@ -1,5 +1,5 @@
 {
-	"name": "Dustin_pipeline4",
+	"name": "Dustin_pipeline_PG_to_Delta",
 	"properties": {
 		"activities": [
 			{
