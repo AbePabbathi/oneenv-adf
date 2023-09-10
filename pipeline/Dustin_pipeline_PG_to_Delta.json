@@ -72,7 +72,9 @@
 							"copyBehavior": "FlattenHierarchy"
 						},
 						"formatSettings": {
-							"type": "ParquetWriteSettings"
+							"type": "ParquetWriteSettings",
+							"maxRowsPerFile": 1000000,
+							"fileNamePrefix": "trip_"
 						}
 					},
 					"enableStaging": false,
