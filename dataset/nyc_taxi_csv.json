@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "yellow_tripdata_2016-01.csv.gz",
+				"fileName": "yellow_tripdata_2016-02.csv.gz",
 				"folderPath": "external_loc_1/source/tripdata/yellow",
 				"fileSystem": "dustinvannoy"
 			},
